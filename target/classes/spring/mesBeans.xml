@@ -3,10 +3,32 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-		<bean id="client" class="com.exo.Client"> <!-- lazy-init="true" init-method="init" destroy-method="destroy"> -->
-			<property name="nom" value="Doe"></property>
-			<property name="prenom" value="John"></property>
-			<property name="age" value="0"></property>
+		<bean id="client1" class="com.exo.Client">
+			<property name="adresse" ref="adresse1"></property>
 		</bean>
+		
+		<bean id="adresse1" class="com.exo.Adresse">
+		</bean>
+		
+		<bean id="client2" class="com.exo.Client">
+			<!-- 
+				<property name="adresse3">
+					<bean class="com.exo.Client">
+						<property name="adresse" value="" </property>
+					</bean>
+				</property>
+			-->
+		</bean>
+		
+		<bean id="adresse2" class="com.exo.Adresse">
+			<constructor-arg value ="59000"/>
+			<constructor-arg value ="rue de Bretagne"/>
+			<constructor-arg value ="Lille"/>
+			<constructor-arg value ="France"/>
+		</bean>
+		
+
+		
+		
 
 </beans>
